@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <header></header>
+    <body>
+
+    <button type = "button" onclick="sendTosynology()">test</button>
+
+    <script>
+    function sendTosynology() {
+        const url = 'https://tymbox.tymetro.com.tw:5001/webapi/entry.cgi?api=SYNO.Chat.External&method=incoming&version=2&token=%228xbG91BSwxS3Vd4J5fLHXRVxA68l0JyDdQBlTbScfAlDgT2rdwvWZgsYnWRCSZSg%22';
+        
+        let headers = {
+            "Content-Type": "application/json"
+        }
+        const body = {
+            payload : '{"text": "測試網頁"}'
+            };
+    fetch(url, {
+        method: 'POST',
+        body : JSON.stringify(body) // 將 JS 物件轉成 JSON 字串
+    })
+     .then(response => response.json())
+     .then(json => console.log(json));
+}
+    function sendLine(){
+        var CHANNEL_ACCESS_TOKEN = 'AUd7p5XGmjPvNRVavzYgeihqogckR2nlfRJkDK412a3QGUvDzgUwzx8PjXBeCcY7Km9GFYiI8PBp9eHEGRgZXDGGfY4dabyDJJjJfGAX4yIgpW6i6hrRY/Mz29FE7dyl4vn+nUF5X4pCFKX68fZGwQdB04t89/1O/w1cDnyilFU='
+        var url = 'https://api.line.me/v2/bot/message/push';
+        //Uc58c31e0e410575c982684bc76043ac9
+    fetch(url, {
+      'headers': {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + CHANNEL_ACCESS_TOKEN,
+    },
+    'method': 'post',
+    'payload': JSON.stringify({
+      'to': 'Uc58c31e0e410575c982684bc76043ac9',
+      'messages': [{
+        'type': 'text',
+        'text': 'test',
+      },
+      ]
+    }),
+  });
+
+    }
+        
+
+
+
+        </script>
+    </body>
+</html>
