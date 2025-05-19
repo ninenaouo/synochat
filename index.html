@@ -3,7 +3,7 @@
     <header></header>
     <body>
 
-    <button type = "button" onclick="sendTosynology()">test</button>
+    <button type = "button" onclick="sendLine()">test</button>
 
     <script>
     function sendTosynology() {
@@ -17,7 +17,7 @@
             };
     fetch(url, {
         method: 'POST',
-        body : JSON.stringify(body) // 將 JS 物件轉成 JSON 字串
+        body : JSON.stringify(body) 
     })
      .then(response => response.json())
      .then(json => console.log(json));
@@ -25,7 +25,7 @@
     function sendLine(){
         var CHANNEL_ACCESS_TOKEN = 'AUd7p5XGmjPvNRVavzYgeihqogckR2nlfRJkDK412a3QGUvDzgUwzx8PjXBeCcY7Km9GFYiI8PBp9eHEGRgZXDGGfY4dabyDJJjJfGAX4yIgpW6i6hrRY/Mz29FE7dyl4vn+nUF5X4pCFKX68fZGwQdB04t89/1O/w1cDnyilFU='
         var url = 'https://api.line.me/v2/bot/message/push';
-        //Uc58c31e0e410575c982684bc76043ac9
+
     fetch(url, {
       'headers': {
       'Content-Type': 'application/json',
